@@ -17,7 +17,10 @@ const Layout = ({ children }) => {
     query SiteTitleQuery {
       site {
         siteMetadata {
-          title
+          title,
+          author,
+          description, 
+          createdAt
         }
       }
     }
@@ -37,6 +40,7 @@ const Layout = ({ children }) => {
         <footer style={{
           marginTop: `2rem`
         }}>
+          <p>Built by {data.site.siteMetadata?.author} on {data.site.siteMetadata.createdAt}</p>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
